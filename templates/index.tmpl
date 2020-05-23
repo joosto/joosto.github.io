@@ -1,0 +1,21 @@
+{{ template "header" .PageData }}
+<header>
+    <p>
+        <b>I'm Joost 👋️</b> &mdash; I'm a Senior Software Engineer at <a href="https://monzo.com/">Monzo</a>. I'm
+        interested in building resilient payment systems and distributed systems. Previously I’ve worked at
+        <a href="https://deliveroo.engineering/">Deliveroo</a> and <a href="https://www.bunq.com/">bunq</a>.
+    </p>
+    <span id="about-me">
+    Find me on <a href="https://twitter.com/Joost_vOorschot">Twitter</a> and
+    <a href="https://www.linkedin.com/in/joost-van-oorschot-852aa296/">LinkedIn</a>.
+    </span>
+</header>
+{{- /*gotype: joosto.github.io.IndexData*/ -}}
+<h1>📕 Check out my blog</h1>
+<div id="posts">
+    {{ range .Posts }}
+        <a href="/posts/{{.Slug}}.html"><h2>{{.Title}}</h2></a> <!-- todo: remove .html -->
+        <p>{{.Date}} &mdash; {{.Summary}}</p>
+    {{ end }}
+</div>
+{{ template "footer" }}

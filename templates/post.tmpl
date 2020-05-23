@@ -1,0 +1,15 @@
+{{ template "header" .PageData }}
+<div id="navbar">
+    <a id="home-button" href="/">👈 See more of my posts</a>
+    <a id="author-name" href="/">By Joost van Oorschot</a>
+</div>
+{{- /*gotype: joosto.github.io.PostData*/ -}}
+{{.Post.HTML}}
+<div id="post-footer">
+    <p>
+        Thanks for reading 🙇‍♂️ Let me know your thoughts on <a href="https://twitter.com/Joost_vOorschot">Twitter</a>, find
+        me on <a href="https://www.linkedin.com/in/joost-van-oorschot-852aa296/">LinkedIn</a>, or <a href="/">read some of my
+        other posts</a>.
+    </p>
+</div>
+{{ template "footer" }}
