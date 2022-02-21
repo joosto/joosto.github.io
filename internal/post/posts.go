@@ -19,6 +19,7 @@ type Post struct {
 	Date    string        `json:"date"`
 	Title   string        `json:"title"`
 	Summary string        `json:"summary"`
+	URL     string        `json:"url"`
 	HTML    template.HTML `json:"-"`
 }
 
@@ -62,12 +63,11 @@ func parse(path string) Post {
 	if header == nil {
 		log.Fatal("invalid post: missing header")
 	}
-	if body == nil {
-		log.Fatal("invalid post: missing body")
-	}
-	output := blackfriday.Run(body)
 	var post Post
 	must.Succeed(json.Unmarshal(header, &post))
-	post.HTML = template.HTML(output)
+	if body != nil {
+		output := blackfriday.Run(body)
+		post.HTML = template.HTML(output)
+	}
 	return post
 }

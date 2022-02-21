@@ -14,7 +14,11 @@
 <h1>📕 Check out my blog</h1>
 <div id="posts">
     {{ range .Posts }}
-        <a href="/posts/{{.Slug}}.html"><h2>{{.Title}}</h2></a> <!-- todo: remove .html -->
+        {{ if .URL }}
+            <a href="{{.URL}}"><h2>{{.Title}}</h2></a> <!-- todo: remove .html -->
+        {{ else }}
+            <a href="/posts/{{.Slug}}.html"><h2>{{.Title}}</h2></a> <!-- todo: remove .html -->
+        {{ end }}
         <p>{{.Date}} &mdash; {{.Summary}}</p>
     {{ end }}
 </div>
